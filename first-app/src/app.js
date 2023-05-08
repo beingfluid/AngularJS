@@ -1,78 +1,20 @@
-angular.module('counter',[]); //setter syntax
+angular.module('databinding',[]); //setter syntax
 
-angular.module('counter')
-    .controller("CounterController",CounterController);
+angular.module('databinding')
+    .controller("DataBindController",DataBindController);
 
-    CounterController.$inject=[];
+DataBindController.$inject=[];
 
-function CounterController(){ 
-  
-    var ctrl=this;
+function DataBindController(){ 
 
-    ctrl.count=0;
-    ctrl.increment=function(){
-            
-        ctrl.count+=1;
-    };
-    ctrl.decrement=function(){
-            
-        ctrl.count-=1;
-    };
+    // this.message="hello from angular";
+
+    this.website={
+        url:"https://itpro.tv",
+        description:"Awesome!!!!!",
+        photo:"https://placehold.it/50x50",
+        name:"ITPRO.TV"
+    }
+    
 }
 
-/*
-angular.module('counter')
-    .controller("CounterController",CounterController);
-
-    CounterController.$inject=[];
-
-function CounterController(){ 
-  
-    this.count=0;
-    this.increment=function(){
-            
-        this.count+=1;
-    };
-    this.decrement=function(){
-            
-        this.count-=1;
-    };
-}
-
-*/
-
-/*
-angular.module('counter')
-    .controller("CounterController",cheeseburger);
-
-cheeseburger.$inject=["$scope"];
-
-function cheeseburger($scope){ 
-    // console.log(this);
-    $scope.count=0;
-    $scope.increment=function(){
-            
-        $scope.count+=1;
-    };
-    $scope.decrement=function(){
-            
-        $scope.count-=1;
-    };
-}
-*/
-/*
-angular.module('counter')
-    .controller("CounterController",[
-        "$scope",
-        function CounterController($scope){ //now $scope can be replaced as a
-            $scope.count=0;
-            $scope.increment=function(){
-                
-                $scope.count+=1;
-            };
-            $scope.decrement=function(){
-                
-                $scope.count-=1;
-            };
-    }]);
-*/

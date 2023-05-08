@@ -1,17 +1,46 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="counter">
+<html lang="en" ng-app="databinding">
 <head>
     <meta charset="UTF-8">
-    <title>Count Em</title>
+    <title>Data binding</title>
 </head>
 <body>
    
-    <div ng-controller="CounterController as ctrl"> 
-   
-    <button ng-click="ctrl.increment()">+</button>
-        {{ ctrl.count }}
-        <button ng-click="ctrl.decrement()">-</button>
+    <div ng-controller="DataBindController as ctrl"> 
+        {{ ctrl.message }}
+        <!-- This value is coming from counter -->
+        <!-- {{}} known as interpolation -->
+
+        <h1>Websites:</h1>
+        <hr>
+        <div>
+            <a ng-href="{{ctrl.website.url}}">{{ctrl.website.name}}</a>
+        </div>
+        <div>
+            <img ng-src="{{ctrl.website.photo}}" alt="{{ctrl.website.name}}">
+        </div>
+        <hr>
+        <h1>Alterations</h1>
+        <div>
+            URL: 
+            <input type="text" ng-model="ctrl.website.url">
+        </div>
+        <div>
+            Name: 
+            <input type="text" ng-model="ctrl.website.name">
+        </div>
+        <div>
+            Photo: 
+            <input type="text" ng-model="ctrl.website.photo">
+        </div>
+        <!-- <div>
+            <input type="text" ng-model="ctrl.message">
+            //in background keeps looking for change
+        </div> -->
     </div>
+
+    <!-- Your development process depends upon and around data -->
+    
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js" integrity="sha512-G3f4ozX321Jq60/AqV9lggSZsrl8IVsxwi9z/ww1/DkV4rTczx/DLkufIl48VgRdzDYadFBSGJGXptGS1XM0Qw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="src/app.js"></script>
