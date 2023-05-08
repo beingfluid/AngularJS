@@ -1,5 +1,17 @@
-var app=angular.module('first-app',[]); // bootstrap or create the module (i.e. application)
+var app=angular.module('counter',[]); 
 
-app.controller("MainController", function($scope){
-    $scope.message="Hello from Angular";
-});
+app.controller("CounterController", 
+    function CounterController($scope){ //$scope = bridge between controller and view
+    // console.log($scope);
+    console.log(this);
+    $scope.count=0;
+    $scope.increment=function(){
+        // console.log("incrementing");
+        $scope.count+=1;
+    };
+    $scope.decrement=function(){
+        // console.log("decrementing");
+        $scope.count-=1;
+    };
+
+    });

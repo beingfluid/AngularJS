@@ -1,13 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="first-app">
+<html lang="en" ng-app="counter">
 <head>
     <meta charset="UTF-8">
-    <title>Our First Application</title>
+    <title>Count Em</title>
 </head>
 <body>
-    <div ng-controller="MainController">
-        {{ message }}
+   
+    <div ng-controller="CounterController"> 
+    <!-- Controller == Manager == it controls -->
+
+    <!-- <input type="number" ng-model="count"> -->
+    <!-- button[ng-click] -->
+    <button ng-click="increment()">+</button>
+        {{ count }}
+        <button ng-click="decrement()">-</button>
     </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js" integrity="sha512-G3f4ozX321Jq60/AqV9lggSZsrl8IVsxwi9z/ww1/DkV4rTczx/DLkufIl48VgRdzDYadFBSGJGXptGS1XM0Qw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="src/app.js"></script>
 </body>
