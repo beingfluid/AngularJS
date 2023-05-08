@@ -1,50 +1,60 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="builtins">
+<html lang="en" ng-app="dynamic-styles">
 <head>
     <meta charset="UTF-8">
-    <title>Builtin Directives</title>
-    <style>
-        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-  display: none !important;
-}
-    </style>
-    <!-- performance insights -> CPU -> 6x slowdown -->
+    <title>Dynamic Styles</title>
+   <style>
+    .box {
+        width: 100px;
+        height: 100px;
+        border:solid black 1px;
+    }
+    .big {
+        height:200px;
+    }
+    .yellow {
+        background-color: yellow;
+    }
+   </style>
 </head>
 <body>
-   <!-- Directives brings logic into your view -->
-    <div ng-controller="BuiltinController as ctrl" ng-cloak> 
-        {{ ctrl.message }}
+    <div ng-controller="StyleController as ctrl"> 
         
-        <section>
-            Are you an admin?
+        <!-- <section>
+            <label>Are you an admin?</label>
             <input type="checkbox" ng-model="ctrl.isAdmin">
-        </section>
-        <hr>
-        <section ng-if="ctrl.isAdmin">
-            <p>Well aren't you special</p>
-        </section>
-        <section ng-if="!ctrl.isAdmin">
-            <p>Just a regular people around here.</p>
-        </section>
+            <hr>
+            <div ng-show="ctrl.isAdmin">
+                Aren't you special
+            </div>
+            <div ng-hide="ctrl.isAdmin">
+                Just regular users
+            </div>
+        </section> -->
+
         <section>
-            {{ctrl.favouriteColor}}
-            <select ng-model="ctrl.favouriteColor">
-                <option value="red">Red</option>
-                <option value="blue">Blue</option>
-                <option value="green">Green</option>
-                <option value="none">None</option>
-            </select>
+            <div class="box" 
+            
+            ng-style='ctrl.myStyle()'
+            ></div>
+            <!-- ng-class='{"yellow":ctrl.special,"big":ctrl.special}' -->
+            <!-- ng-style='{"background-color":ctrl.favouriteColor,"width":ctrl.width+"px"}' -->
+            <!-- ng-style takes priority over ng-class if used together -->
+
+            <input type="checkbox" ng-model="ctrl.special">
+
+            <input type="radio" ng-model="ctrl.favouriteColor" value="red">Red
+            <input type="radio" ng-model="ctrl.favouriteColor" value="blue">Blue
+            <input type="radio" ng-model="ctrl.favouriteColor" value="green">Green
         </section>
-        <section ng-switch on="ctrl.favouriteColor">
-            <p ng-switch-when="red">You like red!</p>
-            <p ng-switch-when="blue">Picasso</p>
-            <p ng-switch-when="green">Mo Money!</p>
-            <p ng-switch-default>You do not have a favourite color.</p>
-          </section>
+
+        <input type="range" ng-model="ctrl.width">
+      
+
        
     </div>
 
-    <!-- dont memorise anything when you can lookup in the docs, but learn how to read the docs -->
+  
     
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js" integrity="sha512-G3f4ozX321Jq60/AqV9lggSZsrl8IVsxwi9z/ww1/DkV4rTczx/DLkufIl48VgRdzDYadFBSGJGXptGS1XM0Qw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

@@ -1,16 +1,23 @@
-angular.module('builtins',[]); //setter syntax
+angular.module('dynamic-styles',[]); //setter syntax
 
-angular.module('builtins')
-    .controller("BuiltinController",BuiltinController);
+angular.module('dynamic-styles')
+    .controller("StyleController",StyleController);
 
-BuiltinController.$inject=[];
+StyleController.$inject=[];
 
-function BuiltinController(){ 
+function StyleController(){ 
 
-    this.message="working with builtins";
-    this.isAdmin=false;
-    this.favouriteColor='red';
-    
+   this.isAdmin=false;
+    this.favouriteColor="red";
+    this.width=50;
+    this.special=false;
+    this.myStyle=myStyle;
+
+    function myStyle(){
+        return {
+            "background-color":this.favouriteColor,"width":this.width+"px"
+        }
+    }
     
 }
 
