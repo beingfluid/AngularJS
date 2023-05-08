@@ -1,45 +1,50 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="databinding">
+<html lang="en" ng-app="builtins">
 <head>
     <meta charset="UTF-8">
-    <title>Data binding</title>
+    <title>Builtin Directives</title>
+    <style>
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+    </style>
+    <!-- performance insights -> CPU -> 6x slowdown -->
 </head>
 <body>
-   
-    <div ng-controller="DataBindController as ctrl"> 
+   <!-- Directives brings logic into your view -->
+    <div ng-controller="BuiltinController as ctrl" ng-cloak> 
         {{ ctrl.message }}
-        <!-- This value is coming from counter -->
-        <!-- {{}} known as interpolation -->
-
-        <h1>Websites:</h1>
+        
+        <section>
+            Are you an admin?
+            <input type="checkbox" ng-model="ctrl.isAdmin">
+        </section>
         <hr>
-        <div>
-            <a ng-href="{{ctrl.website.url}}">{{ctrl.website.name}}</a>
-        </div>
-        <div>
-            <img ng-src="{{ctrl.website.photo}}" alt="{{ctrl.website.name}}">
-        </div>
-        <hr>
-        <h1>Alterations</h1>
-        <div>
-            URL: 
-            <input type="text" ng-model="ctrl.website.url">
-        </div>
-        <div>
-            Name: 
-            <input type="text" ng-model="ctrl.website.name">
-        </div>
-        <div>
-            Photo: 
-            <input type="text" ng-model="ctrl.website.photo">
-        </div>
-        <!-- <div>
-            <input type="text" ng-model="ctrl.message">
-            //in background keeps looking for change
-        </div> -->
+        <section ng-if="ctrl.isAdmin">
+            <p>Well aren't you special</p>
+        </section>
+        <section ng-if="!ctrl.isAdmin">
+            <p>Just a regular people around here.</p>
+        </section>
+        <section>
+            {{ctrl.favouriteColor}}
+            <select ng-model="ctrl.favouriteColor">
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="green">Green</option>
+                <option value="none">None</option>
+            </select>
+        </section>
+        <section ng-switch on="ctrl.favouriteColor">
+            <p ng-switch-when="red">You like red!</p>
+            <p ng-switch-when="blue">Picasso</p>
+            <p ng-switch-when="green">Mo Money!</p>
+            <p ng-switch-default>You do not have a favourite color.</p>
+          </section>
+       
     </div>
 
-    <!-- Your development process depends upon and around data -->
+    <!-- dont memorise anything when you can lookup in the docs, but learn how to read the docs -->
     
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js" integrity="sha512-G3f4ozX321Jq60/AqV9lggSZsrl8IVsxwi9z/ww1/DkV4rTczx/DLkufIl48VgRdzDYadFBSGJGXptGS1XM0Qw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

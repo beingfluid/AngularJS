@@ -1,20 +1,16 @@
-angular.module('databinding',[]); //setter syntax
+angular.module('builtins',[]); //setter syntax
 
-angular.module('databinding')
-    .controller("DataBindController",DataBindController);
+angular.module('builtins')
+    .controller("BuiltinController",BuiltinController);
 
-DataBindController.$inject=[];
+BuiltinController.$inject=[];
 
-function DataBindController(){ 
+function BuiltinController(){ 
 
-    // this.message="hello from angular";
-
-    this.website={
-        url:"https://itpro.tv",
-        description:"Awesome!!!!!",
-        photo:"https://placehold.it/50x50",
-        name:"ITPRO.TV"
-    }
+    this.message="working with builtins";
+    this.isAdmin=false;
+    this.favouriteColor='red';
+    
     
 }
 
