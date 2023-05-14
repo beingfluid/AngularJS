@@ -1,37 +1,22 @@
-angular.module('lists',[]); //setter syntax
+angular.module('events',[]); //setter syntax
 
-angular.module('lists')
-    .controller("ListController",ListController);
+angular.module('events')
+    .controller("EventController",EventController);
 
-    ListController.$inject=[];
+    EventController.$inject=[];
 
-function ListController(){ 
-
-//    this.numbers=[1,2,3,4];
-
-
-this.cars=[
-    {
-        make:'Toyota',
-        model:"corolla",
-        year:2007
-    },
-    {
-        make:'Hero',
-        model:"PassionXPro",
-        year:2009
-    },
-    {
-        make:'Royal',
-        model:"Enfield",
-        year:2011
+function EventController(){ 
+    this.color='null';
+    this.style=function(){
+        return {
+            'background-color':this.color
+        }
+    };
+    this.setColor=function(color){
+        this.color=color;
     }
-];
-
-// this.colors=["red","green","blue"];
-// this.favoriteColor=this.colors[0];
-
-this.favoriteCar=this.cars[0];
-    
+    this.greet=function(e){
+        console.log("Event: ",e);
+    }
 }
 

@@ -1,80 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="lists">
+<html lang="en" ng-app="events">
 <head>
     <meta charset="UTF-8">
-    <title>Lists</title>
+    <title>Handling Events</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 </head>
 <body>
-    <div ng-controller="ListController as ctrl"> 
-        <!-- <ul>
-            <li ng-repeat="item in ctrl.numbers">{{item}}</li>
-        </ul> -->
+    <div ng-controller="EventController as ctrl"> 
+       <!-- <button 
+        ng-mouseenter="ctrl.setColor('red')" 
+        ng-mouseleave="ctrl.setColor('yellow')" 
+        ng-click="ctrl.greet($event)"
+        ng-style="ctrl.style()">
+            Click here
+        </button> -->
 
-        <!-- <ul>
-            <li ng-repeat='x in ["a","a","a"]'>{{x}}</li>
-        </ul> -->
+        <!-- <input type="text" 
+        ng-change="ctrl.greet($event)" ng-model="ctrl.color"> -->
 
-         <!-- <ul>
-            <li ng-repeat='x in ["a","a","a"] track by $index'>{{x}}</li>
-        </ul> -->
-<!-- 
-        <section  ng-repeat="car in ctrl.cars">
-       
-            <header>
-                
-                {{car.make}}
-            </header>
-            <main>
-                {{car.model}}
-            </main>
-            <footer>
-                {{car.year}}
-            </footer>
-        </section> -->
-
-        <!-- <section  ng-repeat="car in ctrl.cars track by $index">
-       
-            <header>
-                {{car.make}}
-            </header>
-            <main>
-                {{car.model}}
-            </main>
-            <footer>
-                {{car.year}}
-            </footer>
-        </section> -->
-
-       <section class="card" ng-repeat="(index, car) in ctrl.cars track by $index">
-        <div class="card-body">
-            <header class="card-title">
-                <span>{{index+1}}</span>
-                {{car.make}}
-            </header>
-            <main class="card-text">
-                {{car.model}}
-            </main>
-            <footer class="card-text">
-                {{car.year}}
-            </footer>
-        </div>
-        </section>
-
-        <!-- <select ng-options="color for color in ctrl.colors" ng-model="ctrl.favoriteColor">
-
-        </select> -->
-
-        <!-- <select ng-options="index for (index,color) in ctrl.colors" ng-model="ctrl.favoriteColor">
-
-        </select> -->
-
-        <select ng-options="car.model for car in ctrl.cars" ng-model="ctrl.favoriteCar">
-
-        </select>
-
-
-
+        <!-- <input type="text" 
+        ng-keypress="ctrl.greet($event)" ng-model="ctrl.color"> -->
     </div>
 
   
