@@ -1,23 +1,37 @@
-angular.module('dynamic-styles',[]); //setter syntax
+angular.module('lists',[]); //setter syntax
 
-angular.module('dynamic-styles')
-    .controller("StyleController",StyleController);
+angular.module('lists')
+    .controller("ListController",ListController);
 
-StyleController.$inject=[];
+    ListController.$inject=[];
 
-function StyleController(){ 
+function ListController(){ 
 
-   this.isAdmin=false;
-    this.favouriteColor="red";
-    this.width=50;
-    this.special=false;
-    this.myStyle=myStyle;
+//    this.numbers=[1,2,3,4];
 
-    function myStyle(){
-        return {
-            "background-color":this.favouriteColor,"width":this.width+"px"
-        }
+
+this.cars=[
+    {
+        make:'Toyota',
+        model:"corolla",
+        year:2007
+    },
+    {
+        make:'Hero',
+        model:"PassionXPro",
+        year:2009
+    },
+    {
+        make:'Royal',
+        model:"Enfield",
+        year:2011
     }
+];
+
+// this.colors=["red","green","blue"];
+// this.favoriteColor=this.colors[0];
+
+this.favoriteCar=this.cars[0];
     
 }
 
