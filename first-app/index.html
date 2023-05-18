@@ -1,25 +1,52 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="events">
+<html lang="en" ng-app="custom-directives">
 <head>
     <meta charset="UTF-8">
-    <title>Handling Events</title>
+    <title>Custom Directives</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            border: 5px solid black;
+        }
+    </style>
 </head>
 <body>
-    <div ng-controller="EventController as ctrl"> 
-       <!-- <button 
-        ng-mouseenter="ctrl.setColor('red')" 
-        ng-mouseleave="ctrl.setColor('yellow')" 
-        ng-click="ctrl.greet($event)"
-        ng-style="ctrl.style()">
-            Click here
-        </button> -->
+    <div ng-controller="MainController as ctrl"> 
+      {{ctrl.message}}
 
-        <!-- <input type="text" 
-        ng-change="ctrl.greet($event)" ng-model="ctrl.color"> -->
+      <!-- Step 1 -->
+      <!-- <div class="box" highlight="yellow" base="green"></div> -->
 
-        <!-- <input type="text" 
-        ng-keypress="ctrl.greet($event)" ng-model="ctrl.color"> -->
+       <!-- Step 2 -->
+        <!-- <div class="box" highlight="yellow" base="green"></div>
+      <div class="box" highlight="blue" base="orange"></div> -->
+
+       <!-- Step 3 -->
+    <!-- <welcome></welcome> -->
+
+     <!-- Step 4 -->
+     <!-- <div welcome></div> -->
+
+      <!-- Step 5 -->
+     <!-- <div class="welcome"></div> -->
+
+     <!-- Step 6 -->
+     <!-- directive: welcome -->
+
+     <!-- Step 7 -->
+       <!-- <welcome></welcome>
+       <div welcome></div>
+       <div class="welcome"></div> -->
+
+     <!-- Step 8 -->
+     <!-- <welcome></welcome> -->
+
+      <!-- Step 9 -->
+      <welcome-tag></welcome-tag>
+
+
     </div>
 
   
@@ -27,5 +54,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js" integrity="sha512-G3f4ozX321Jq60/AqV9lggSZsrl8IVsxwi9z/ww1/DkV4rTczx/DLkufIl48VgRdzDYadFBSGJGXptGS1XM0Qw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="src/app.js"></script>
+    <script src="src/highlight.directive.js"></script>
+    <script src="src/welcome.directive.js"></script>
 </body>
 </html>

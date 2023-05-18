@@ -1,22 +1,12 @@
-angular.module('events',[]); //setter syntax
+angular.module('custom-directives',[]); 
 
-angular.module('events')
-    .controller("EventController",EventController);
+angular.module('custom-directives')
+    .controller("MainController",MainController);
 
-    EventController.$inject=[];
+    MainController.$inject=[];
 
-function EventController(){ 
-    this.color='null';
-    this.style=function(){
-        return {
-            'background-color':this.color
-        }
-    };
-    this.setColor=function(color){
-        this.color=color;
-    }
-    this.greet=function(e){
-        console.log("Event: ",e);
-    }
+function MainController(){ 
+    this.message="Welcome to angular";
+   
 }
 
